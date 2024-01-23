@@ -1,0 +1,49 @@
+<div *ngIf="mode==='login'">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" required id="username" autocomplete="username" name="username"
+        [(ngModel)]="user_details['username']" required />
+    </div>
+    <div>
+      <label for="password">Passowrd</label>
+      <input type="password" id="password" name="password" [(ngModel)]="user_details['password']" required />
+    </div>
+    <button type="submit">Login</button>
+  </form>
+</div>
+
+<div *ngIf="mode==='create'">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstname">First Name</label>
+      <input type="text" required id="firstname" autocomplete="firstname" name="firstname"
+        [(ngModel)]="user_details['firstname']" required />
+    </div>
+    <div class="form-group">
+      <label for="lastname">Lastname</label>
+      <input type="text" required id="lastname" autocomplete="username" name="username"
+        [(ngModel)]="user_details['lastname']" required />
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" required id="username" autocomplete="username" name="username"
+        [(ngModel)]="user_details['username']" required />
+    </div>
+    <div>
+      <label for="password">Passowrd</label>
+      <input type="password" id="password" name="password" [(ngModel)]="user_details['password']" required />
+    </div>
+    <div>
+      <label for="dob">DOB</label>
+      <input type="calender" id="calender" name="calender" [(ngModel)]="user_details['dob']" required />
+    </div>
+    <button type="submit">Create</button>
+  </form>
+</div>
+<div>
+  <button *ngIf="mode=='login'" (click)="onChangeMode('create')"> Create new User?
+  </button>
+  <button *ngIf="mode=='create'" (click)="onChangeMode('login')"> Already a User?
+  </button>
+</div>
