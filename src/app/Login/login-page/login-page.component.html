@@ -1,27 +1,29 @@
 <div class="whole-page">
   <div class="login-container">
     <h2 class="login-header">Login</h2>
-    <form (ngSubmit)="login()" #loginForm="ngForm">
-      <div class="form-control">
-        <div class="form-label">
-          <label for="username">Username:</label><br>
+    <div class="login-form">
+      <form (ngSubmit)="login()" #loginForm="ngForm">
+        <div class="form-control">
+          <div class="form-label">
+            <label for="username">Username:</label><br>
+          </div>
+          <div class="form-input">
+            <input type="text" id="username" name="username" [(ngModel)]="username" required>
+          </div>
         </div>
-        <div class="form-input">
-          <input type="text" id="username" name="username" [(ngModel)]="username" required>
+        <div class="form-control">
+          <div class="form-label">
+            <label for="password">Password:</label><br>
+          </div>
+          <div class="form-input">
+            <input type="password" id="password" name="password" [(ngModel)]="password" required><br><br>
+          </div>
         </div>
-      </div>
-      <div class="form-control">
-        <div class="form-label">
-          <label for="password">Password:</label><br>
+        <div class="submit">
+  
+          <button type="submit" [disabled]="!loginForm.valid">Login</button>
         </div>
-        <div class="form-input">
-          <input type="password" id="password" name="password" [(ngModel)]="password" required><br><br>
-        </div>
-      </div>
-      <div class="submit">
-
-        <button type="submit" [disabled]="!loginForm.valid">Login</button>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </div>
