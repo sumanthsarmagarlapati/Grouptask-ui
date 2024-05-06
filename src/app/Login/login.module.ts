@@ -7,7 +7,7 @@ import { ToastrService } from "ngx-toastr";
 
 
 @NgModule({
-  declarations: [LoginPageComponent, TwoFactorComponent],
+  declarations: [ TwoFactorComponent],
   imports: [LoginRoutingModule,SharedModule],
   providers:[ToastrService]
 })
