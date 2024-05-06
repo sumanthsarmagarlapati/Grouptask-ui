@@ -1,48 +1,45 @@
-
 body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
 .whole-page {
   display: flex;
-  width: 100%;
-  // flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 97vh;
+  height: 100vh; /* Adjusted to 100vh to cover the whole viewport */
 }
 
 .login-container {
- padding: 10%;
-  width: 9%;
-  height: 18vh;
-  border: 1px solid #ccc;;
+  width: 25%; /* Adjusted width for better visibility */
+  // height: 70%;
+  padding: 30px;
+  border: 1px solid #ccc;
 }
 
-.login-header{
-    padding: 1%;
-    text-align: center;
-    margin-bottom: 20px;
- }
-
-.login-body {
-
+.login-header {
+  text-align: center; /* Center the header text */
+  margin-bottom: 20px;
 }
 
-.form-label{
+.login-form {
+  text-align: center;
 }
 
-.form-input{
-    padding: 1%;
-
+.form-label {
+  margin-bottom: 10px; /* Added margin to separate label and input */
 }
 
-.form-control{
-    padding:1.5%
+.form-control {
+  margin-bottom: 20px; /* Added margin to separate form controls */
 }
 
-.submit{
-    text-align: center;padding: 1%;
+.form-input {
+  /* No need for padding in form input */
+}
+
+.submit {
+  text-align: center;
+  padding-top: 10px; /* Adjusted padding for better spacing */
 }
