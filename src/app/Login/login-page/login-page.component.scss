@@ -1,0 +1,48 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+.whole-page {
+  display: flex;
+  width: 100%;
+  // flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 97vh;
+}
+
+.login-container {
+ padding: 10%;
+  width: 9%;
+  height: 18vh;
+  border: 1px solid #ccc;;
+}
+
+.login-header{
+    padding: 1%;
+    text-align: center;
+    margin-bottom: 20px;
+ }
+
+.login-body {
+
+}
+
+.form-label{
+}
+
+.form-input{
+    padding: 1%;
+
+}
+
+.form-control{
+    padding:1.5%
+}
+
+.submit{
+    text-align: center;padding: 1%;
+}
