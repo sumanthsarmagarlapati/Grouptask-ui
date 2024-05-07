@@ -3,32 +3,38 @@ body, html {
   padding: 0;
   height: 100%;
 }
-
-.whole-page {
+ 
+.login-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Adjusted to 100vh to cover the whole viewport */
+  height: 100%; /* Adjusted to 100vh to cover the whole viewport */
 }
 
 .login-container {
+  position: absolute; /* Position the container absolutely */
+  top: 50%; /* Align the top of the container to the middle of the page */
+  left: 50%; /* Align the left side of the container to the middle of the page */
+  transform: translate(-50%, -50%); /* Center the container precisely */
   width: 25%; /* Adjusted width for better visibility */
-  // height: 70%;
-  padding: 30px;
+  padding: 20px;
+  height:45%;
   border: 1px solid #ccc;
+
 }
 
 .login-header {
   text-align: center; /* Center the header text */
-  margin-bottom: 20px;
 }
 
 .login-form {
-  text-align: center;
+padding-left: 10px;
+padding-top: 10px;
 }
 
 .form-label {
-  margin-bottom: 10px; /* Added margin to separate label and input */
+  margin-bottom: 5px; /* Added margin to separate label and input */
+  font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .form-control {
@@ -36,10 +42,31 @@ body, html {
 }
 
 .form-input {
+  margin: 4px 2px;
+  cursor:text;
+  width:90%;
+  height: 30px;
+  border: 0.5px solid #403e3e;
+  border-radius:8px;
+
   /* No need for padding in form input */
 }
 
 .submit {
   text-align: center;
-  padding-top: 10px; /* Adjusted padding for better spacing */
+  padding-top: 1px; /* Adjusted padding for better spacing */
+}
+
+.auth {
+  display: flex; /* Use flexbox */
+  justify-content: space-between; /* Space items evenly along the main axis */
+  margin-top: 10px;
+}
+
+.auth-control {
+  border-radius: 10px;
+  flex: 1; /* Distribute available space equally among both buttons */
+  border-radius: 10px;
+  padding: 10px 20px; /* Adjust padding to increase button size */
+  font-size: 16px;
 }
