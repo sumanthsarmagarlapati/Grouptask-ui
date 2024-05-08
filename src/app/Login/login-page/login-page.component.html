@@ -5,30 +5,29 @@
       <form (ngSubmit)="loginUser()" #loginForm="ngForm">
         <div class="form-control">
           <div class="form-label">
-            <label for="username">Username:</label><br>
+            <label for="username">Username:</label>
           </div>
           <input type="text" class="form-input" id="username" name="username" placeholder="Enter Your Name"
             [(ngModel)]="username" required>
         </div>
         <div class="form-control">
           <div class="form-label">
-            <label for="password">Password:</label><br>
+            <label for="password">Password:</label>
           </div>
           <input type="password" placeholder="Enter Password" class="form-input" id="password" name="password"
-            [(ngModel)]="password" required><br><br>
+            [(ngModel)]="password" required>
         </div>
-        <div class="submit">
-          <button type="submit" [disabled]="!loginForm.valid">Login</button>
+        <div class="form-submit">
+          <button type="submit"  [disabled]="!loginForm.valid">Login</button>
         </div>
-
-        <!-- <div class="auth">
-          <div class="auth-control">
-            <button type="button"></button>
-          </div>
-          <div class="auth-control">
-            <button type="button"></button>
-          </div>
-        </div> -->
+        <div class="form-line"></div>
+        <div class="form-text">Or Login With</div>
+        <div class="form-auth-control">
+            <button type="button" class="auth-control"><i class="fa-brands fa-google"></i>Google</button>
+            <button type="button" class="auth-control"><i class="fa-brands fa-instagram"></i>Instagram</button>
+            <button type="button" class="auth-control"><i class="fa-brands fa-facebook-f"></i>Facebook</button>
+        </div>
+       
       </form>
     </div>
   </div>

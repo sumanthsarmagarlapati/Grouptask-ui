@@ -1,72 +1,110 @@
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   height: 100%;
 }
- 
+
 .login-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%; /* Adjusted to 100vh to cover the whole viewport */
+  height: 100%;
 }
 
 .login-container {
-  position: absolute; /* Position the container absolutely */
-  top: 50%; /* Align the top of the container to the middle of the page */
-  left: 50%; /* Align the left side of the container to the middle of the page */
-  transform: translate(-50%, -50%); /* Center the container precisely */
-  width: 25%; /* Adjusted width for better visibility */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
   padding: 20px;
-  height:45%;
+  height: auto;
   border: 1px solid #ccc;
-
 }
 
 .login-header {
-  text-align: center; /* Center the header text */
+  text-align: center;
 }
 
 .login-form {
-padding-left: 10px;
-padding-top: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
 .form-label {
-  margin-bottom: 5px; /* Added margin to separate label and input */
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 5px;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .form-control {
-  margin-bottom: 20px; /* Added margin to separate form controls */
+  margin-bottom: 20px;
 }
 
 .form-input {
-  margin: 4px 2px;
-  cursor:text;
-  width:90%;
-  height: 30px;
-  border: 0.5px solid #403e3e;
-  border-radius:8px;
-
-  /* No need for padding in form input */
-}
-
-.submit {
+  margin-top: 6px;
+  margin-bottom: 4px;
+  cursor: text;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 13px;
   text-align: center;
-  padding-top: 1px; /* Adjusted padding for better spacing */
+  
 }
 
-.auth {
+  .form-submit {
+  justify-content: center;
   display: flex; /* Use flexbox */
-  justify-content: space-between; /* Space items evenly along the main axis */
-  margin-top: 10px;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  padding-top: 1px;
+  border-radius: 6px;
+  background-color: #2376f3;
+  height: 30px;
+  width: 80%;
+  cursor: pointer;
+  margin: auto; 
+  button{
+  color: #ffffff;
+  font-size: medium;
+  border: none; /* Remove button border */
+  background: transparent; /* Remove button background */
+  }
+  // .form-submit:hover{
+  // background-color: #1c76fd;
+  // }
+  }
+
+.form-auth-control {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .auth-control {
-  border-radius: 10px;
-  flex: 1; /* Distribute available space equally among both buttons */
-  border-radius: 10px;
-  padding: 10px 20px; /* Adjust padding to increase button size */
+  width: 24%;
+  border-radius: 8px;
+  background-color: #faf9f9;
+  background-color: #faf9f9;
+  padding-top: 10px;
+  padding-right: 20px;
+  width: calc(50% - 20px);
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
   font-size: 16px;
+  margin-right: 10px;
+  font-size: small;
+}
+
+.form-text {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.auth-control:hover {
+  background-color: #dbefdb;
 }
