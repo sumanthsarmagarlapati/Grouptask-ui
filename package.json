@@ -20,6 +20,8 @@
     "@angular/platform-browser-dynamic": "^17.0.9",
     "@angular/router": "^17.0.9",
     "@auth0/auth0-angular": "^2.2.1",
+    "@fortawesome/angular-fontawesome": "^0.14.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@nestjs/common": "^10.3.7",
     "font-awesome": "^4.7.0",
     "ngx-toastr": "^18.0.0",
