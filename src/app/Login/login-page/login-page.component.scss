@@ -13,22 +13,23 @@ html {
 }
 
 .login-image {
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Ensure the image is behind other content */
+  z-index: -1;
 }
 
 .login-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the image covers the entire container */
+  object-fit: cover;
 }
+
 .login-container {
   position: absolute;
-  background-color: rgba(250, 246, 246, 0.89); 
+  background-color: rgba(195, 193, 193, 0.89);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -50,10 +51,13 @@ html {
 .form-label {
   margin-bottom: 5px;
   font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: auto;
 }
 
 .form-control {
   margin-bottom: 20px;
+  background-color: transparent;
+  border: none;
 }
 
 .form-input {
@@ -64,32 +68,48 @@ html {
   height: 40px;
   border: 1px solid #ccc;
   border-radius: 13px;
-  text-align: center;
-  
+  text-align: center; 
 }
 
-  .form-submit {
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon input {
+  padding-right: 30px; /* Adjust as needed */
+}
+
+.input-with-icon i {
+  position: absolute;
+  top: 50%;
+  right: 12px; /* Adjust to position the icon as desired */
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+
+.form-submit {
   justify-content: center;
-  display: flex; /* Use flexbox */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding-top: 1px;
   border-radius: 6px;
   background-color: #2376f3;
   height: 30px;
   width: 80%;
   cursor: pointer;
-  margin: auto; 
-  button{
-  color: #ffffff;
-  font-size: medium;
-  border: none; /* Remove button border */
-  background: transparent; /* Remove button background */
+  margin: auto;
+  button {
+    color: #ffffff;
+    font-size: medium;
+    border: none;
+    background: transparent;
   }
   // .form-submit:hover{
   // background-color: #1c76fd;
   // }
-  }
+}
 
 .form-auth-control {
   display: flex;
@@ -102,8 +122,7 @@ html {
   width: 24%;
   border-radius: 8px;
   background-color: #faf9f9;
-  background-color: #faf9f9;
-  padding-top: 10px;
+  padding-top: 7px;
   padding-right: 20px;
   width: calc(50% - 20px);
   border: 1px solid #ccc;
@@ -113,6 +132,12 @@ html {
   font-size: 16px;
   margin-right: 10px;
   font-size: small;
+  &-icon {
+    margin-right: 5px;
+  }
+  &-text {
+    font-weight: bolder;
+  }
 }
 
 .form-text {
