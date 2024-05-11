@@ -6,12 +6,13 @@ import {
   UserCreateDto,
 } from '../../../app/common/Interfaces/login_interfaces';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
   imports: [
     FormsModule,
-  ],
+  CommonModule],
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
@@ -20,8 +21,9 @@ export class LoginPageComponent {
   user_details: Record<string, any> = {};
   mode: string = 'login';
   users_data: Record<string, any>[] = [];
-  username:string='';
-  password:string=''
+  username: string = '';
+  password: string = '';
+  password_type: string = 'password';
   constructor(
     private _login_api_service: LoginApiService,
     private _toaster_service: ToastrService
@@ -30,15 +32,21 @@ export class LoginPageComponent {
     this.getUsers();
   }
 
-  ngOnit() {
-   
-  }
+  ngOnit() {}
 
   onSubmit() {
     if (this.mode == 'login') {
       this.loginUser();
     } else if (this.mode == 'create') {
       this.createUser();
+    }
+  }
+
+  passwordView(type: string) {
+    if (type === 'close') {
+      this.password_type = 'password';
+    } else {
+      this.password_type = 'text';
     }
   }
 
@@ -58,9 +66,7 @@ export class LoginPageComponent {
       error: () => {},
     });
   }
-  login(){
-    
-  }
+  login() {}
   async createUser() {
     const login_body: UserCreateDto = {
       username: this.user_details['username'],
@@ -82,8 +88,8 @@ export class LoginPageComponent {
     });
   }
   async getUsers() {
-    console.log("in call");
-    
+    console.log('in call');
+
     (await this._login_api_service.getUsers()).subscribe({
       next: (res: any) => {
         this.users_data = res;
