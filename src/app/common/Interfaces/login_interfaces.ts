@@ -5,7 +5,7 @@ export interface UserLoginDto{
 export interface UserCreateDto{
     username:string,
     password:string,
-    dob:string,
+    email:string,
     firstname:string,
     lastname:string
 }

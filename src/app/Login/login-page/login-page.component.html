@@ -1,35 +1,107 @@
 <div class="login-page">
   <div class="login-image">
-
     <img src="../../../assets/images/pc.jpg" alt="hefre">
-
   </div>
-  <div class="login-container">
+  <div class="login-container" *ngIf="mode=='login'">
     <h2 class="login-header"> Login</h2>
+    <div class="form-note">
+      Don't have an account? <div class="form-note-text" (click)="switchToRegister('create')">Register</div>
+    </div>
     <div class="login-form">
-      <form (ngSubmit)="loginUser()" #loginForm="ngForm">
+      <form [formGroup]="login_form" (ngSubmit)="onSubmit()">
         <div class="form-control">
           <div class="form-label">
             <label for="username">Username:</label>
           </div>
           <input type="text" class="form-input" id="username" name="username" placeholder="Enter Your Name"
-            [(ngModel)]="username" required>
+            formControlName="username" required>
         </div>
         <div class="form-control">
           <div class="form-label">
             <label for="password">Password:</label>
           </div>
           <div class="input-with-icon">
-            <input [type]='password_type' placeholder="Enter Password" class="form-input" id="password" name="password" [(ngModel)]="password" required>
+            <input [type]='password_type' placeholder="Enter Password" class="form-input" id="password" name="password"
+              formControlName="password" required>
             <i class="fa-solid fa-eye" (click)="passwordView('open')" *ngIf="password_type=='password'"></i>
-            <i class="fa-regular fa-eye"(click)="passwordView('close')" *ngIf="password_type=='text'"></i>
+            <i class="fa-regular fa-eye" (click)="passwordView('close')" *ngIf="password_type=='text'"></i>
           </div>
         </div>
-        <div class="form-submit">
-          <button type="submit" [disabled]="!loginForm.valid">Login</button>
+        <div class="form-submit" [ngClass]="{'form-submit-fail':!login_form.valid}" (click)="onSubmit()">
+          <button [disabled]="!login_form.valid">Login</button>
         </div>
         <div class="form-line"></div>
         <div class="form-text">Or Login With</div>
+        <div class="form-auth-control">
+          <button type="button" class="auth-control">
+            <i class="fa-brands fa-google auth-control-icon"></i>
+            <span class="auth-control-text">Google</span>
+          </button>
+          <button type="button" class="auth-control">
+            <i class="fa-brands fa-facebook-f auth-control-icon"></i>
+            <span class="auth-control-text">Facebook</span>
+          </button>
+          <button type="button" class="auth-control">
+            <i class="fa-brands fa-instagram auth-control-icon"></i>
+            <span class="auth-control-text">Instagram</span>
+          </button>
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <div class="login-container" *ngIf="mode=='create'">
+    <h2 class="login-header"> Sign Up</h2>
+    <div class="form-note">
+      already have an account? <div class="form-note-text" (click)="switchToRegister('login')">Login</div>
+    </div>
+    <div class="login-form">
+      <form [formGroup]="create_form" (ngSubmit)="onSubmit()">
+        <div class="form-control">
+          <div class="form-label">
+            <label for="firstname">Firstname</label>
+          </div>
+          <input type="text" class="form-input" id="firstname" name="firstname" placeholder="Enter Your First Name"
+            formControlName="firstname" required>
+        </div>
+        <div class="form-control">
+          <div class="form-label">
+            <label for="lastname">Lastname</label>
+          </div>
+          <input type="text" class="form-input" id="lastname" name="lastname" placeholder="Enter Your Last Name"
+            formControlName="lastname" required>
+        </div>
+        <div class="form-control">
+          <div class="form-label">
+            <label for="username">Username</label>
+          </div>
+          <input type="text" class="form-input" id="username" name="username" placeholder="Enter Your Username"
+            formControlName="username" required>
+        </div>
+        <div class="form-control">
+          <div class="form-label">
+            <label for="email">Email</label>
+          </div>
+          <input type="email" class="form-input" id="email" name="email" placeholder="Enter Your Email"
+            formControlName="email" required>
+        </div>
+        <div class="form-control">
+          <div class="form-label">
+            <label for="password">Password:</label>
+          </div>
+          <div class="input-with-icon">
+            <input [type]='password_type' placeholder="Enter Password" class="form-input" id="password" name="password"
+              formControlName="password" required>
+            <i class="fa-solid fa-eye" (click)="passwordView('open')" *ngIf="password_type=='password'"></i>
+            <i class="fa-regular fa-eye" (click)="passwordView('close')" *ngIf="password_type=='text'"></i>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit" [disabled]="!login_form.valid"> SignUp</button>
+        </div>
+        <div class="form-line"></div>
+        <div class="form-text">Or Signup With</div>
         <div class="form-auth-control">
           <button type="button" class="auth-control">
             <i class="fa-brands fa-google auth-control-icon"></i>
