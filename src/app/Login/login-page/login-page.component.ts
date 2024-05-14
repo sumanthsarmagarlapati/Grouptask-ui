@@ -5,14 +5,18 @@ import {
   UserLoginDto,
   UserCreateDto,
 } from '../../../app/common/Interfaces/login_interfaces';
-import { FormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
-  imports: [
-    FormsModule,
-  CommonModule],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule],
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
@@ -21,18 +25,31 @@ export class LoginPageComponent {
   user_details: Record<string, any> = {};
   mode: string = 'login';
   users_data: Record<string, any>[] = [];
-  username: string = '';
-  password: string = '';
   password_type: string = 'password';
+  login_flag:boolean=false
+  login_form: any;
+  create_form: any;
+
   constructor(
     private _login_api_service: LoginApiService,
-    private _toaster_service: ToastrService
-  ) {
-    console.log(this.mode, 'mode');
-    this.getUsers();
-  }
+    private _toaster_service: ToastrService,
+    private formBuilder: FormBuilder
+  ) {}
 
-  ngOnit() {}
+  ngOnInit() {
+    this.getUsers();
+    this.login_form = this.formBuilder.group({
+      username:new FormControl(''),
+      password:new FormControl(''),
+    });
+    this.create_form = this.formBuilder.group({
+      username:new FormControl(''),
+      lastname:new FormControl(''),
+      firstname:new FormControl(''),
+      email:new FormControl(''),
+      password:new FormControl(''),
+    });
+  }
 
   onSubmit() {
     if (this.mode == 'login') {
@@ -51,16 +68,17 @@ export class LoginPageComponent {
   }
 
   async loginUser() {
-    console.log('this.user_details', this.user_details);
-
+    const username = this.login_form.get('username').value;
+    const password = this.login_form.get('password').value;
     const login_body: UserLoginDto = {
-      username: this.user_details['username'],
-      password: this.user_details['password'],
+      username: username,
+      password: password,
     };
     console.log('login_body', login_body);
     (await this._login_api_service.userLogin(login_body)).subscribe({
       next: (res: any) => {
         console.log('response', res);
+        this.login_flag=true
         this._toaster_service.success(`User login successfully.`);
       },
       error: () => {},
@@ -69,11 +87,11 @@ export class LoginPageComponent {
   login() {}
   async createUser() {
     const login_body: UserCreateDto = {
-      username: this.user_details['username'],
-      password: this.user_details['password'],
-      firstname: this.user_details['firstname'],
-      lastname: this.user_details['lastname'],
-      dob: this.user_details['dob'],
+      firstname: this.create_form.get('firstname').value,
+      lastname: this.create_form.get('lastname').value,
+      username: this.create_form.get('username').value,
+      email:this.create_form.get('email').value,
+      password: this.create_form.get('password').value,
     };
     (await this._login_api_service.userCreate(login_body)).subscribe({
       next: (res: any) => {
@@ -104,5 +122,11 @@ export class LoginPageComponent {
   onChangeMode(mode: string) {
     this.mode = mode;
     this.user_details = {};
+  }
+
+
+  switchToRegister(type:string){
+    this.mode=type
+
   }
 }
