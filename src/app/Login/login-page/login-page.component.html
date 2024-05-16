@@ -97,8 +97,8 @@
             <i class="fa-regular fa-eye" (click)="passwordView('close')" *ngIf="password_type=='text'"></i>
           </div>
         </div>
-        <div class="form-submit">
-          <button type="submit" [disabled]="!login_form.valid"> SignUp</button>
+        <div class="form-submit" [ngClass]="{'form-submit-fail':!create_form.valid}" (click)="onSubmit()">
+          <button [disabled]="!create_form.valid"> SignUp</button>
         </div>
         <div class="form-line"></div>
         <div class="form-text">Or Signup With</div>

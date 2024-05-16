@@ -74,17 +74,21 @@ export class LoginPageComponent {
       username: username,
       password: password,
     };
-    console.log('login_body', login_body);
     (await this._login_api_service.userLogin(login_body)).subscribe({
       next: (res: any) => {
-        console.log('response', res);
         this.login_flag=true
         this._toaster_service.success(`User login successfully.`);
+        this.reset()
       },
-      error: () => {},
+      error: (error) => {
+        this._toaster_service.error(
+          `${error['error']['message']}.`,"Login Failed!"
+        );
+      },
     });
   }
-  login() {}
+
+
   async createUser() {
     const login_body: UserCreateDto = {
       firstname: this.create_form.get('firstname').value,
@@ -99,12 +103,22 @@ export class LoginPageComponent {
         this._toaster_service.success(
           `User ${login_body['username']}created successfully.`
         );
+        this.reset()
       },
       error: (error: any) => {
-        console.log(error);
+        this._toaster_service.error(
+          `${error['error']['message']}.`,"User Creation Failed!"
+        );
       },
     });
   }
+
+  reset(){
+    this.login_form.reset()
+    this.create_form.reset()
+    this.mode='login'
+  }
+
   async getUsers() {
     console.log('in call');
 
