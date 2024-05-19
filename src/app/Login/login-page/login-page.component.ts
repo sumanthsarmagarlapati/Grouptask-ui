@@ -13,6 +13,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -33,7 +34,8 @@ export class LoginPageComponent {
   constructor(
     private _login_api_service: LoginApiService,
     private _toaster_service: ToastrService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private _router:Router
   ) {}
 
   ngOnInit() {
@@ -78,6 +80,7 @@ export class LoginPageComponent {
       next: (res: any) => {
         this.login_flag=true
         this._toaster_service.success(`User login successfully.`);
+        this._router.navigate(['/dashboard'])
         this.reset()
       },
       error: (error) => {
