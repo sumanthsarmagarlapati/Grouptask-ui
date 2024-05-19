@@ -124,7 +124,12 @@ html {
     font-size: medium;
     border: none;
     background: transparent;
+    transition: border-radius 0.3s ease; 
   }
+}
+
+.form-submit button:hover {
+  border-radius: 20px; /* Change to the desired border-radius on hover */
 }
 
 .form-auth-control {
