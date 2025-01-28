@@ -1,4 +1,4 @@
-export class ROuterMenus {
+export class RouterMenus {
   menus = {
     dashboard: {},
     login: {},
