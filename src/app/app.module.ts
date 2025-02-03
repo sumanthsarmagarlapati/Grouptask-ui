@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -8,23 +8,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ToastrModule.forRoot({
-      timeOut: 10000,
-      preventDuplicates: true,
-    }),
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    SidemenuComponent
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [AppComponent],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        ToastrModule.forRoot({
+            timeOut: 10000,
+            preventDuplicates: true,
+        }),
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        SidemenuComponent], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
